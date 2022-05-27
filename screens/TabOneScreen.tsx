@@ -4,12 +4,16 @@ import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
 import { RootTabScreenProps } from '../types';
 
+import { styled } from "tailwindcss-react-native";
+
+const StyledView = styled(View);
+
 export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'>) {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Tab One</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="/screens/TabOneScreen.tsx" />
+      <StyledView className="bg-white rounded-lg h-64 w-64"><Text>Bonjour</Text></StyledView>
+      <View style={styles.box}></View>
     </View>
   );
 }
@@ -29,4 +33,9 @@ const styles = StyleSheet.create({
     height: 1,
     width: '80%',
   },
+  box: {
+    backgroundColor: 'red',
+    height: 40,
+    aspectRatio: 1
+  }
 });
